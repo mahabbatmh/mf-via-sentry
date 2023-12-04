@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { ROUTES } from "./consts.js";
-import { BackdropLoading } from "../components/BackdropLoading.jsx";
+import BackdropLoading from "../components/BackdropLoading.jsx";
 
 const Remote = lazy(() => import("products/App"));
 
