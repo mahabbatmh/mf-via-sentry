@@ -1,3 +1,4 @@
+- [Home](/)
 - [Setup](setup.md)
 - MF Configuration
   - [Vite configuration](vite-config.md)
