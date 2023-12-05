@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Product } from "./components/Product.jsx";
-import BackDropLoading from "host/BackDropLoading";
+import BackdropLoading from "host/BackdropLoading";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      {isLoading && <BackDropLoading />}
+      {isLoading && <BackdropLoading />}
       <Typography variant="h3" gutterBottom>
         Products
       </Typography>
