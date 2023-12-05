@@ -1,0 +1,8 @@
+- [Setup](setup.md)
+- MF Configuration
+  - [Vite configuration](vite-config.md)
+  - [NPM Scripts](npm-scripts.md)
+  - [Using Micro Frontend application](using-mf.md)
+- [Routing](routing.md)
+- [Products application](products.md)
+- [Carts application](carts.md)
