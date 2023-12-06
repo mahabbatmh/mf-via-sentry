@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
+import { sentryVitePlugin } from "@sentry/vite-plugin";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,8 +18,14 @@ export default defineConfig({
       },
       shared: ["react", "react-dom"],
     }),
+    sentryVitePlugin({
+      org: "example-org-6k",
+      project: "host-app",
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+    }),
   ],
   build: {
     target: "esnext",
+    sourcemap: true,
   },
 });

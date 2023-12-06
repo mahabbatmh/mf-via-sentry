@@ -6,8 +6,18 @@ import { CartsRoute } from "./pages/carts.jsx";
 import { ProductsRoute } from "./pages/products.jsx";
 import Toolbar from "@mui/material/Toolbar";
 import { ROUTES } from "./pages/consts.js";
+import { useEffect } from "react";
+import * as Sentry from "@sentry/react";
 
 const App = () => {
+  useEffect(() => {
+    Sentry.setUser({
+      id: "456",
+      username: "filankes_filankesov",
+      email: "someone@example.com",
+    });
+  }, []);
+
   return (
     <BrowserRouter>
       <Box sx={{ display: "flex" }}>

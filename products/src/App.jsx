@@ -2,6 +2,7 @@ import { Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Product } from "./components/Product.jsx";
 import BackdropLoading from "host/BackdropLoading";
+import * as Sentry from "@sentry/react";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -9,7 +10,18 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/what")
+      .then((res) => {
+        if (!res.ok) {
+          Sentry.captureException(
+            new Error(`Unexpected HTTP error ${res.status}`),
+            (scope) => {
+              scope.setTag("feature", "products");
+              return scope;
+            }
+          );
+        }
+      })
       .then((res) => res.json())
       .then(setProducts)
       .finally(() => setIsLoading(false));

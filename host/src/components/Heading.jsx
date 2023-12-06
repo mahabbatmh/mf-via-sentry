@@ -2,7 +2,7 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Link } from "@mui/material";
+import { Link, Button } from "@mui/material";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { ROUTES } from "../pages/consts.js";
 
@@ -18,6 +18,10 @@ const navItems = [
 ];
 
 export function Heading() {
+  function handleClick() {
+    throw new Error('Ooops! Something went wrong.')
+  }
+
   return (
     <AppBar component="nav">
       <Toolbar>
@@ -50,6 +54,9 @@ export function Heading() {
               {item.name}
             </Link>
           ))}
+          <Button onClick={handleClick} sx={{ color: "#fff" }}>
+            Crash
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>
